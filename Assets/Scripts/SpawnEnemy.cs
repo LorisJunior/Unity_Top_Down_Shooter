@@ -5,10 +5,6 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     [SerializeField]private GameObject[] enemies;
-    private int enemyIndex = 0;
-    private float xPosition = 0f;
-    private float xRange = 17f;
-    private Vector3 spawnPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +20,10 @@ public class SpawnEnemy : MonoBehaviour
 
     void SpawnEnemies()
     {
-        xPosition = Random.Range(-xRange, xRange);
-        enemyIndex = Random.Range(0, 2);
-        spawnPosition = new Vector3(xPosition, 0, 10);
+        float xRange = 15f;
+        float xPosition = Random.Range(-xRange, xRange);
+        int enemyIndex = Random.Range(0, 2);
+        Vector3 spawnPosition = new Vector3(xPosition, 1, 6);
 
         Instantiate(enemies[enemyIndex], spawnPosition, enemies[enemyIndex].transform.rotation);
     }
