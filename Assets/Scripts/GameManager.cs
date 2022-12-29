@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnemy : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    [SerializeField]private GameObject[] enemies;
+    [SerializeField] private GameObject[] enemies;
 
     // Start is called before the first frame update
     void Start()
@@ -15,14 +15,14 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void SpawnEnemies()
     {
         float xRange = 15f;
         float xPosition = Random.Range(-xRange, xRange);
-        int enemyIndex = Random.Range(0, 2);
+        int enemyIndex = Random.Range(0, enemies.Length);
         Vector3 spawnPosition = new Vector3(xPosition, 1, 6);
 
         Instantiate(enemies[enemyIndex], spawnPosition, enemies[enemyIndex].transform.rotation);
