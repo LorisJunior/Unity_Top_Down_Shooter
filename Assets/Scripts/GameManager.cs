@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemies;
+    [SerializeField] private GameObject gameOverUI;
     [SerializeField] private TextMeshProUGUI scoreText;
     public float spawnRate;
     private int score;
@@ -56,6 +58,12 @@ public class GameManager : MonoBehaviour
         if (score < 0)
         {
             isGameOver = true;
+            gameOverUI.SetActive(true);
         }
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
