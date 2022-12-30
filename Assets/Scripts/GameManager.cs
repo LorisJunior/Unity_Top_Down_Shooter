@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         score = 0;
-        spawnRate = 1.5f;
+        spawnRate = Difficulty.spawnRate;
         StartCoroutine("SpawnManager");
     }
 
@@ -66,4 +66,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("DifficultyMenu");
+    }
+    
 }
